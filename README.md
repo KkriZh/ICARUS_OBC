@@ -1,4 +1,4 @@
-This repo for  ICARUS
+This is a repository  for  ICARUS
 
 it contains some major files for the project
 
