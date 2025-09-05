@@ -1,0 +1,17 @@
+#Resources Used
+
+Python 3
+
+VS code
+
+Docker: Containerized simulation (krish709/adcs_sim:fixed
+) for portability.
+
+GitHub: Version control and submission hosting.
+
+Record Screen: Video recording for capturing normal run and fault injection.
+
+AI Tools: copilot and chatgpt.
+
+youtube videos: https://youtu.be/DQdB7wFEygo?si=2QICT1D0PCMGoAZO
+                https://youtu.be/WNUCAPKa44Y?si=WFRIXitkCAPlJ7ol
