@@ -1,0 +1,14 @@
+Initially, I had little knowledge about Docker, so I started by watching tutorials to gain a basic understanding of container and image .
+Once familiar, I focused on understanding the project scope and identifying the core system components.
+I began by initializing variables and running the original code to get a basic understanding of its behavior.
+
+To handle edge cases and improve system robustness, I added safety checks, pointers, and other protective measures. 
+I also researched relevant concepts such as gyroscopes, torques, and sensor behavior to better model the spacecraft’s dynamics.
+
+Next, I studied the core flight system (cFS) and the “42” simulation environment to understand how telemetry and control would be integrated.
+
+In telemetry_bridge.py, 
+I implemented functions to detect system failures and generate appropriate error messages.
+
+During this process, I created my own Docker image on Docker Hub. 
+Finally, I implemented and tested fault injections to simulate threshold breaches and verify that the system correctly identifies failures.
