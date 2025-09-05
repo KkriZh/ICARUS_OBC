@@ -1,0 +1,39 @@
+#adcs_controller.cpp
+1) Initialized PID controllers properly
+ Ensures each axis has its own control logic, avoiding shared state bugs.
+2)Used memset and memcpy safely
+Prevents garbage values and ensures clean startup and correct sensor data handling.
+3)Clamped magnetorquer and wheel torques
+Keeps outputs within safe physical limits, protecting hardware from overload.
+4)Deleted PID controllers in destructor
+Frees memory and avoids leaks, which is critical in embedded systems.
+5)Updated gains and torque limits dynamically
+Allows real-time tuning and mode switching without restarting the system.
+
+#microcontroller.cpp
+1)Started in Normal Mode instead of Safe Mode
+Allows active control unless faults are detected, improving responsiveness.
+2)Added fault injection block (commented)
+3)Clamped actuator outputs after control computation
+Ensures torque stays within safe physical limits, even if PID overshoots
+
+#microcontroller_wrapper_c.cpp
+1)Moved processSensorData() before actuator fetch
+Ensures control outputs are based on the latest sensor input, not stale data.
+2)Converted SensorData_t to C++ SensorData struct inline
+Allows seamless reuse of your C++ logic without modifying core class headers.
+3)Used std::memcpy to copy actuator outputs to C struct
+Ensures safe and efficient transfer of control outputs to cFS telemetry.
+4)Guarded all public API calls with null checks
+Prevents crashes if g_microcontroller is uninitialized or sensor pointer is null.
+
+#telemetry_bridge.py
+1)Original code printed NORMAL even when altitude or sensors exceeded thresholds.
+2)Fixed check_status() function to return FAIL whenever altitude, gyro, or magnetometer values crossed their respective thresholds.
+3)Ensured faults are predictable and always trigger FAIL status for demonstration.
+4)Replaced constant values with gradual sinusoidal decay and small oscillations for altitude and gyro to mimic real spacecraft behavior.
+5)Optional Fault Injection Commented
+Fault injection code is included but commented out for “normal run” demonstrations.
+6)Simplified Print Output
+
+
